@@ -6,7 +6,7 @@ const chatbox = document.querySelector(".chatbox");
  
 let userMessage;
 const API_KEY = 
-    "sk-proj-XzQVk8AUsuC9aILYIyvRT3BlbkFJcDVV71rtEDiJgGOPrH2w";
+    "Your API key here";
 
  
 const createChatLi = (message, className) => {
@@ -38,7 +38,7 @@ const generateResponse = (incomingChatLi) => {
                 {
                     role: "assistant",
                     content: "You MUST speak old English in EVERY response! You are a wise Sage, speak like one! You also Know magic.",
-                    assistant_id: "asst_kIhE78744OJpRxXspvCVvMu8"
+                    assistant_id: ""
                 }
             ]
         })
