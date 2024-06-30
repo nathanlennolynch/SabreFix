@@ -1,0 +1,68 @@
+<style>
+	body { 
+	  background: url(./images/blacksmithShop.png) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+</style>
+
+<div class="row pt-3">
+	<div class="col-sm-7">			
+	</div>
+	<div class="col-sm-8">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Create Weapon</h3>
+				<h5 class="text-success" ng-bind="createStatus"></h5>
+			</div>			
+			<div class="card-body">
+			<form name="createForm">
+				<div class="form-group">
+					<label for="name" class="font-weight-bold">Name:</label>
+					<input ng-model="weapon.name" required ng-minlength="2" name="name"
+						type="text" class="form-control" id="name">					
+					<span ng-show="createForm.name.$touched && createForm.name.$invalid"
+						class="text-danger">
+						required and must be at least two characters.
+					</span>					
+				</div>
+				<div class="form-group">
+					<label for="type" class="font-weight-bold">Type:</label>
+					<select ng-options="value for value in types" required name="type"
+						ng-model="weapon.type" class="form-control" id="type">
+					</select>
+					<span ng-show="createForm.type.$touched && createForm.type.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>
+				<div class="form-group">
+					<label for="level" class="font-weight-bold">Level:</label>
+					<input ng-model="weapon.level" max="80" min="1" required
+						type="number" class="form-control" id="level" name="level">					
+					<span ng-show="createForm.level.$touched && createForm.level.$invalid"
+						class="text-danger">
+						Sorry, we only specialize in weapons from 1 to 80
+					</span>	
+				</div>				
+			</form>
+		</div>
+		<div class="card-footer text-center">
+            <audio id="sound6" src="./sounds/Clear.mp3" preload="auto"></audio>
+            <audio id="sound7" src="./sounds/blacksmith.mp3" preload="auto"></audio>
+			<button type="button" class="btn" 
+				ng-disabled="createForm.$invalid || disableCreate"
+				ng-click="createWeapon()" onclick="document.getElementById('sound7').play();">Create</button>			
+			<button type="button" class="btn"
+				ng-click="clear()" onclick="document.getElementById('sound6').play();">Clear</button>
+		</div>
+		</div>
+	</div>
+	<div class="col-sm-4">	
+		<div class="pt-3">
+		<img class="img-fluid rounded-circle" src="./images/create.png" alt="">	
+	</div>	
+	</div>
+</div>

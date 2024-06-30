@@ -1,0 +1,87 @@
+<div class="col-3">
+    <style>
+        body { 
+          background: url(./images/blacksmithShop.png) no-repeat center fixed;
+          background-size:100%;
+        }
+    </style>
+</div>
+
+<div class="row">
+	<div class="col-sm-7">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Update or Delete order</h3>
+				<h5 class="text-success" ng-bind="updateStatus"></h5>
+			</div>			
+		
+			<div class="card-body">
+			<form name="updateForm">
+				<div class="form-group">
+					<label for="name" class="font-weight-bold">Name:</label>
+					<input ng-model="weapon.name" required ng-minlength="2" name="name"
+						type="text" class="form-control" id="name">
+                        <span class="text-danger" ng-if="!updateForm.name.$valid">required and must be at least 2 characters</span>
+				</div>
+				<div class="form-group">
+					<label for="type" class="font-weight-bold">Type:</label>
+					<select ng-model="weapon.type"
+						ng-model="weapon.type" class="form-control" id="type">
+                        <option ng-repeat="type in types">{{type}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="level" class="font-weight-bold">Level:</label>
+					<input ng-model="weapon.level" max="80" min="1" required
+						type="number" class="form-control" id="level" name="level">
+                    <span class="text-danger" ng-if="!updateForm.level.$valid">Must be between 1 and 80</span>
+				</div>
+        <div class="form-group">
+					<label for="phoneNumber" class="font-weight-bold">Phone Number:</label>
+					<input ng-model="weapon.phoneNumber" required ng-minlength="10" ng-maxlength="11"
+						type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                    <span class="text-danger" ng-if="!updateForm.phoneNumber.$valid">Enter a valid phone number</span>
+				</div>
+        <div class="form-group">
+					<label for="email" class="font-weight-bold">Email:</label>
+					<input ng-model="weapon.email" required ng-minlength="3" ng-maxlength="50"
+						type="text" class="form-control" id="email" name="email">
+                    <span class="text-danger" ng-if="!updateForm.email.$valid">Enter a valid email address</span>
+				</div>
+        <div class="form-group">
+					<label for="ticket_description" class="font-weight-bold">Description:</label>
+					<textarea ng-model="weapon.description"
+						type="text" class="form-control" id="ticket_description" name="ticket_description" rows="5" cols="40">
+					</textarea>
+				</div>
+				<div>
+					<span class="font-weight-bold">Weapon ID:</span> <span
+						ng-bind="weapon.id" id="id"></span>
+				</div>
+				<div>
+					<span class="font-weight-bold">Create Date:</span> <span
+						ng-bind="weapon.createTime" id="create"></span>
+				</div>
+				<div>
+					<span class="font-weight-bold">Update Date:</span> <span
+						ng-bind="weapon.updateTime" id="update"></span>
+				</div>
+			</form>
+			</div>
+			<div class="card-footer text-center">
+                <audio id="sound3" src="./sounds/RepairTicket.mp3" preload="auto"></audio>
+				<audio id="deletePaper"src="./sounds/tear-paper-103161.mp3"></audio>
+				<button onclick="document.getElementById('sound3').play();" type="button" class="btn" ng-disabled="updateForm.$invalid || disableUpdate"
+				ng-click="updateOrder()">Update</button>
+				<button onclick="document.getElementById('deletePaper').play();"type="button" class="btn" ng-disabled="disableUpdate"
+				ng-click="deleteOrder()">Delete</button>
+				<button onclick="document.getElementById('sound1').play();"type="button" class="btn" ng-click="goToOrderView()">Back</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-5">		
+		<div class="pt-5">
+		<img class="img-fluid rounded-circle" src="./images/repairstack.png">
+		</div>
+	</div>
+</div>

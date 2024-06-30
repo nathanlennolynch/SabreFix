@@ -1,0 +1,45 @@
+<div class="col-3">
+    <style>
+        body { 
+          background: url(./images/blacksmithShop.png) no-repeat center fixed;
+          background-size:100%;
+        }
+    </style>
+</div>
+<body>
+<div class="card" style="width: 300px;height: 210px; align-items: center;" >
+    <div>
+        <h2 style="font-family: serif;">Log In</h2>
+        <div class="form-group">
+            <label for="email" style="font-family: serif;">Login ID:</label>
+            <input type="email" id="username" placeholder="Enter your Login ID" style="background-color: rgba(0, 0, 0, 0.473); color: gold; font-family: serif;">
+        </div>
+        <div class="form-group">
+            <label for="password" style="font-family: serif;">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" style="background-color: rgba(0, 0, 0, 0.473); color: gold; font-family: serif;">
+        </div>
+        <div>
+            <button class="btn" onclick="func();">Sign in</button>
+            <button onclick="document.getElementById('sound1').play(); back()"type="button" class="btn">Back</button>
+        </div>
+    <div id="error" class="error"></div>
+    </div>
+</div>
+<script>
+    function func(){
+        var email = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+        if (email == 'admin' && pass == 'whitebird') {
+            window.location.assign("/index1.html#!/orderSearch")
+            document.getElementById('sound2').play();
+        } else {
+            document.getElementById("error").innerHTML = "Wrong Login ID or password";
+            document.getElementById('errorSound').play();
+            return false;
+        }
+    }
+    function back(){
+        window.location.assign("/index1.html#!/repair")
+    }
+</script>
+</body>

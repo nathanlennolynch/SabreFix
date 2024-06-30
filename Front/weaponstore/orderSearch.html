@@ -1,0 +1,54 @@
+<div class="col-3">
+    <style>
+        body { 
+          background: url(./images/blacksmithShop.png) no-repeat center fixed;
+          background-size:100%;
+        }
+    </style>
+</div>
+<div class="card mt-3">
+	<div class="card-header">
+		<h4 style="font-family: serif;">Search For Orders</h4>
+		<button class="btn" onclick="document.getElementById('sound2').play();"ng-click="getAllWeapons()">Search</button>
+		<span class="float-right" style="font-family: serif; font-weight: bolder;">
+			Search: <input class="filler"type="text" maxlength="20" ng-model="searchValue" style="background-color: rgba(0, 0, 0, 0.288);">
+		</span>
+	</div>
+	<div class="card-body">
+		<table class="table">
+			<thead class="thead">
+				<tr>
+					<th>Weapon ID</th>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Level</th>
+                    <th>Phone Number</th>
+					<th>Email</th>
+					<th>Description</th>
+					<th>Create Date</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="thead" ng-repeat="weapon in weapons | filter:searchValue" ng-click="goToUpdateOrder(weapon.id)"
+				 onclick="document.getElementById('Ticket').play();">
+					<td>{{weapon.id}}</td>
+					<td>{{weapon.name}}</td>
+					<td>{{weapon.type}}</td>
+					<td>{{weapon.level}}</td>
+					<td>{{weapon.phoneNumber}}</td>
+					<td>{{weapon.email}}</td>
+					<td>{{weapon.description | limitTo:15}}...</td>
+					<td>{{weapon.createTime | limitTo:10}}</td>					
+				</tr>				
+			</tbody>		
+		</table>	
+		<div ng-show="showSpinner" class="text-center pt-4">
+			<div class="spinner-border" style="width: 3rem; height: 3rem;"></div>
+			<br>
+			<p>Loading...</p>
+		</div>
+	</div>
+	<div class="card-footer" style="font-family: serif;">
+		Please select a weapon for upgrade/buy
+	</div>
+</div>

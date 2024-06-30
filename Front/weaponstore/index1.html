@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/css.css">
+    <audio autoplay loop controls hidden id="vol">
+		<source src="./sounds/Blacksmith Medieval Ambience 1 Hour dnd.mp3" type="audio/mpeg">
+	  </audio>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script src="./js/weapon.js"></script>
+    <script src="./js/searchController.js"></script>
+	<script src="./js/updateController.js"></script>
+	<script src="./js/createController.js"></script>
+	<script src="./js/repairController.js"></script>
+	<script src="./js/orderSearchController.js"></script>
+	<script src="./js/updateOrderController.js"></script>
+	<link rel="icon" href="./images/S.png" type="image/icon type">
+    <title>SabreFix</title>
+	
+	<!--Sounds-->
+	<audio id="sound2" src="./sounds/MainClick.mp3" preload="auto"></audio>
+	<audio id="resumeBttn" src="./sounds/ResumeButton.mp3"></audio>
+	<audio id="pickweapon"src="./sounds/PickWeapon.mp3"></audio>
+	<audio id="Ticket" src="./sounds/RepairTicket.mp3" preload="auto"></audio>
+	<audio id="sound6" src="./sounds/Clear.mp3" preload="auto"></audio>
+	<audio id="errorSound"src="./sounds/error.mp3"></audio>
+</head>
+<body ng-app="weaponapp">
+    <nav class="navbar navbar-expand-sm">
+		<div class="navbar-brand">
+			<audio id="sound1" src="./sounds/BackButton.mp3" preload="auto"></audio>
+			<a  onclick="document.getElementById('sound1').play();"
+			href="#!main"><span class="img">
+				<img class="img-fluid rounded-circle"src="./images/S.png" alt="" width="80" height="80"></span></a></div>
+		<!-- Collapse button -->
+  		<button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    		aria-controls="navbarSupportedContent1" 
+    		aria-expanded="false" 
+    		aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+    	</button>
+		<!-- Collapsible content -->
+  		<div class="collapse navbar-collapse font-weight-bold" id="navbarSupportedContent1">
+			<ul class="navbar-nav">
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="#!search">Browse</a></button>
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="#!create">Create</a></button>
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="#!repair">Repair Order</a></button>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="Chatbot/index.html">Sage</a></button>
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="#!stack">Stack</a></button>
+				<button class="nav-item btn" onclick="document.getElementById('sound2').play();"><a class="nav-link" style="font-family: serif;" href="Nathan_Lynch_Resume .pdf">Resume</a></button>	
+			</ul>
+		</div>
+	</nav>
+<div class="container">
+	<div ng-view></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 100;
+}
+ 
+body {
+  
+}
+ 
+.chatBot {
+  border: 3px solid rgb(187, 43, 43);
+  border-radius: 10px;
+  margin: 50px auto;
+  overflow: hidden;
+  width: 500px;
+  overflow-y: clip;
+  height: 600px;
+  background-image: url(./images/sage.png);
+  
+  background-size: 550px 600px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+ 
+header {
+  background-color: rgb(187, 43, 43);
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 7px 7px 0 0;
+  font-family: serif;
+}
+ 
+header h2 {
+  color: gold;
+  margin: 0;
+}
+ 
+.chatbox {
+  padding: 15px;
+  list-style: none;
+  overflow-y: auto;
+  height: 400px;
+}
+ 
+.chatbox li {
+  margin-bottom: 10px;
+}
+ 
+.chat p {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+ 
+.chat-outgoing p {
+  background-color: rgba(187, 43, 43, 0.748);
+  align-self: flex-end;
+  color: gold;
+  font-family: serif;
+}
+ 
+.chat-incoming p {
+  background-color: #0000009b;
+  color: gold;
+  font-family: serif;
+}
+ 
+.chat-input {
+  padding: 10px;
+  border-top: 1px solid rgb(187, 43, 43);
+  background-color: rgba(0, 0, 0, 0.189);
+}
+ 
+.chat-input textarea {
+  width: 522px;
+  padding: 10px;
+  border: 1px solid rgb(187, 43, 43);
+  border-radius: 7px;
+  resize: none;
+  outline: none;
+  overflow-y: scroll;
+  background-color: #0000007a;
+  font-size: 16px;
+  font-family: serif;
+  color: gold;
+  font-weight: 600;
+  margin-top: -10px;
+  margin-left: -15px;
+  height: 80px;
+}
+
+.chatbox .chat p.error {
+  color: #ff0000;
+  background-color: #ff3737e8;
+}
+ 
+#sendBTN {
+  width: 30%;
+  padding: 8px;
+  background-color: rgb(187, 43, 43);
+  border: 0;
+  border-color: black;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: serif;
+  border-radius: 10px;
+  color: gold;
+  margin-top: 12px;
+  margin-left: 10px;
+}
+#sendBTN:hover {
+  background-color: rgb(224, 72, 72);
+  transition: .5s;
+  transform:scale(1.1);
+} 
+.lastMessage {
+  margin-top: 50px;
+  font-size: 35px;
+  font-weight: 600;
+  color: gold;
+  margin-left: 550px;
+}
+.scroller {
+    width: 300px;
+    height: 100px;
+    overflow-y: scroll;
+  }

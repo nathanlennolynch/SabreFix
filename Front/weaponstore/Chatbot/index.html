@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div class="col-3">
+        <style>
+            body { 
+              background: url(./images/forge.png) no-repeat center fixed;
+              background-size:100%;
+            }
+        </style>
+    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Sage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./btn.js"></script>
+    <audio src="./sounds/loud-thunder-192165.mp3" id="speak"></audio>
+    <audio src="./sounds/BackButton.mp3" id="backBtn"></audio>
+    <embed src="./sounds/Deep Forge Lava Fire Hammering Metalsmith Dwarven Ambience 1 Hour dnd.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
+</head>
+    <body>
+
+    <div class="chatBot">
+        <header>
+            <h2>Sage</h2>
+        </header>
+        <ul class="chatbox" id="scroll">
+            <li class="chat-incoming chat">
+                
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea rows="0" cols="17"
+                      placeholder="Enter a message..." id="user"></textarea>
+            <button id="sendBTN" onclick="document.getElementById('speak').play();">Speak</button>
+            <button id="sendBTN" onclick="document.getElementById('user').value = '';document.getElementById('backBtn').play();">Clear</button>
+            <button id="sendBTN" onclick="back()">Back</button>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+    <script>
+            function back(){
+        window.location.assign("/index1.html#!/main")
+    }
+    </script>
+</body>
+ 
+</html>

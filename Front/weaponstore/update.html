@@ -1,0 +1,70 @@
+<div class="col-3">
+    <style>
+        body { 
+          background: url(./images/blacksmithShop.png) no-repeat center fixed;
+          background-size:100%;
+        }
+    </style>
+</div>
+
+<div class="row">
+	<div class="col-sm-7">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Upgrade and Buy Weapon</h3>
+				<h5 class="text-success" ng-bind="updateStatus"></h5>
+			</div>			
+		
+			<div class="card-body">
+			<form name="updateForm">
+				<div class="form-group">
+					<label for="name" class="font-weight-bold">Name:</label>
+					<input ng-model="weapon.name" required ng-minlength="2" name="name"
+						type="text" class="form-control" id="name">
+                        <span class="text-danger" ng-if="!updateForm.name.$valid">required and must be at least 2 characters</span>
+				</div>
+				<div class="form-group">
+					<label for="type" class="font-weight-bold">Type:</label>
+					<select ng-model="weapon.type"
+						ng-model="weapon.type" class="form-control" id="type">
+                        <option ng-repeat="type in types">{{type}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="level" class="font-weight-bold">Level:</label>
+					<input ng-model="weapon.level" max="80" min="1" required
+						type="number" class="form-control" id="level" name="level">
+                    <span class="text-danger" ng-if="!updateForm.level.$valid">Must be between 1 and 80</span>
+				</div>
+				<div>
+					<span class="font-weight-bold">Weapon ID:</span> <span
+						ng-bind="weapon.id" id="id"></span>
+				</div>
+				<div>
+					<span class="font-weight-bold">Create Date:</span> <span
+						ng-bind="weapon.createDateTime" id="create"></span>
+				</div>
+				<div>
+					<span class="font-weight-bold">Upgrade Date:</span> <span
+						ng-bind="weapon.updateDateTime" id="update"></span>
+				</div>
+			</form>
+			</div>
+			<div class="card-footer text-center">
+                <audio id="sound3" src="./sounds/blacksmith.mp3" preload="auto"></audio>
+                <audio id="sound4" src="./sounds/metal-dagger-hit-185444.mp3" preload="auto"></audio>
+				<audio id="buy"src="./sounds/buy.mp3"></audio>
+				<button onclick="document.getElementById('sound3').play();" type="button" class="btn" ng-disabled="updateForm.$invalid || disableUpdate"
+				ng-click="updateWeapon()">Upgrade</button>
+				<button onclick="document.getElementById('buy').play();"type="button" class="btn" ng-disabled="disableUpdate"
+				ng-click="deleteWeapon()">Buy</button>
+				<button onclick="document.getElementById('sound1').play();"type="button" class="btn" ng-click="goToSearchView()">Back</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-5">		
+		<div class="pt-5">
+		<img class="img-fluid rounded-circle" src="./images/Upgrade.png">
+		</div>
+	</div>
+</div>
